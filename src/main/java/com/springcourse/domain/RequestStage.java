@@ -18,5 +18,5 @@ public class RequestStage {
 	private Date realizationDate;
 	private RequestState state;
 	private Request request;
-	private user user;
+	private User user;
 }
