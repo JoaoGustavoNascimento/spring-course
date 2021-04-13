@@ -3,6 +3,8 @@ package com.springcourse.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.springcourse.domain.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
