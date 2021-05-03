@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.springcourse.domain.RequestStage;
 
 @Repository
-public interface RequestStageRepositiry extends JpaRepository<RequestRepository, Long> {
+public interface RequestStageRepositiry extends JpaRepository<RequestStage, Long> {
 
 	public List<RequestStage> findAllByRequestId(Long id);
 }
