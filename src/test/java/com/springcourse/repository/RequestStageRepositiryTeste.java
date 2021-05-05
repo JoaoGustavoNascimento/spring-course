@@ -50,7 +50,7 @@ public class RequestStageRepositiryTeste {
 	
 	@Test
 	public void listByrequestIdTest() {
-		List<RequestStage> stages = requestStageRepositiry.findAll();
+		List<RequestStage> stages = requestStageRepositiry.findAllByRequestId(1L);
 		assertThat(stages.size()).isEqualTo(1);
 	}
 
