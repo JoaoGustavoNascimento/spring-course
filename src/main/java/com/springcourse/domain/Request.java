@@ -35,26 +35,6 @@ public class Request implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	public Request() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-	public Request(Long id, String subject, String description, Date creationDate, RequestState state, User owner,
-			List<RequestStage> stages) {
-		super();
-		this.id = id;
-		this.subject = subject;
-		this.description = description;
-		this.creationDate = creationDate;
-		this.state = state;
-		this.owner = owner;
-		this.stages = stages;
-	}
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -80,95 +60,5 @@ public class Request implements Serializable{
 	
 	@OneToMany(mappedBy = "request")
 	private List<RequestStage> stages = new ArrayList<RequestStage>();
-
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-
-	public String getSubject() {
-		return subject;
-	}
-
-
-
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-
-
-
-	public String getDescription() {
-		return description;
-	}
-
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-
-
-	public RequestState getState() {
-		return state;
-	}
-
-
-
-	public void setState(RequestState state) {
-		this.state = state;
-	}
-
-
-
-	public User getOwner() {
-		return owner;
-	}
-
-
-
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
-
-
-	public List<RequestStage> getStages() {
-		return stages;
-	}
-
-
-
-	public void setStages(List<RequestStage> stages) {
-		this.stages = stages;
-	}
-
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
 	
 }
