@@ -12,7 +12,7 @@ import com.springcourse.domain.enums.RequestState;
 import com.springcourse.repository.RequestRepository;
 
 @Service
-public class ResquestService {
+public class RequestService {
 	@Autowired private RequestRepository requestRepository;
 	
 	public Request save(Request request) {
