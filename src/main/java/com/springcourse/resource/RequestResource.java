@@ -13,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springcourse.domain.Request;
+import com.springcourse.domain.RequestStage;
 import com.springcourse.service.RequestService;
+import com.springcourse.service.RequestStageService;
 
 @RestController
 @RequestMapping(value = "request")
 public class RequestResource {
 	@Autowired private RequestService requestService;
+	@Autowired private RequestStageService stageService;
 	
 	@PostMapping
 	public ResponseEntity<Request> save(@RequestBody Request request) {
@@ -26,7 +29,7 @@ public class RequestResource {
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdRequest);
 	}
 	
-	@PostMapping("/(id)")
+	@PostMapping("/{id}")
 	public ResponseEntity<Request> update(@PathVariable(name = "id") Long id, @RequestBody Request request)  {
 		request.setId(id);
 		
@@ -34,7 +37,7 @@ public class RequestResource {
 		return ResponseEntity.ok(updateRequest);
 	}
 	
-	@GetMapping("/(id")
+	@GetMapping("/{id}")
 	public ResponseEntity<Request> getById(@PathVariable(name = "id") Long id) {
 		Request request = requestService.getById(id);
 		return ResponseEntity.ok(request);
@@ -46,5 +49,10 @@ public class RequestResource {
 		return ResponseEntity.ok(requests);
 	}
 	
+	@GetMapping("/{id}/request-stage")
+	public ResponseEntity<List<RequestStage>> listAllStagesById(@PathVariable(name = "id") Long id) {
+		List<RequestStage> stages = stageService.listAllByRequestId(id);
+		return ResponseEntity.ok(stages);
+	}
 	
 }

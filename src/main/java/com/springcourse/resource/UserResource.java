@@ -30,14 +30,14 @@ public class UserResource {
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
 	}
 	
-	@PostMapping("/(id)")
+	@PostMapping("/{id}")
 	public ResponseEntity<User> update(@PathVariable(name = "id") Long id, @RequestBody User user) {
 		user.setId(id);
 		User updateUser = userService.update(user);
 		return ResponseEntity.ok(updateUser);
 	}
 	
-	@GetMapping("/(id)")
+	@GetMapping("/{id}")
 	public ResponseEntity<User> getById(@PathVariable("id") Long id) {
 		User user = userService.getById(id);
 		return ResponseEntity.ok(user);
@@ -48,13 +48,13 @@ public class UserResource {
 		return ResponseEntity.ok(users);
 	}
 	
-	@PostMapping("/(login)")
+	@PostMapping("/{login}")
 	public ResponseEntity<User> login(@RequestBody UserLogindto user) {
 		User loggedUser = userService.login(user.getEmail(), user.getPassword());
 		return ResponseEntity.ok(loggedUser);
 	}
 	
-	@GetMapping("/(id)/requests")
+	@GetMapping("/{id}/requests")
 	public ResponseEntity<List<Request>> listAllRequestsById(@PathVariable(name = "id") long id) {
 		List<Request> requests = requestService.listAllByOwnerId(id);
 		return ResponseEntity.ok(requests);
