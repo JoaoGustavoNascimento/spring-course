@@ -54,7 +54,7 @@ public class User implements Serializable{
 		return serialVersionUID;
 	}
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 20, nullable = false, updatable = false)
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
